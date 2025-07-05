@@ -15,9 +15,9 @@ public static class Arrays
         {
             multiples[i] = number * (i + 1); // 3. Use the correct formula to calculate the multiples of numbers.
         }
-        
+
         return multiples; // 4. Return the result to the filled array.
-        
+
         // TODO Problem 1 Start
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
@@ -34,10 +34,19 @@ public static class Arrays
     /// Because a list is dynamic, this function will modify the existing data list rather than returning a new list.
     /// </summary>
     public static void RotateListRight(List<int> data, int amount)
-    {
-        // TODO Problem 2 Start
+    { // Steps
+        List<int> newList = new List<int>(); // 1. Initialize the new List
+
+        int cutpoint = data.Count - amount; //2.  Set the variable that will get the numbers to rotate to the right
+        List<int> lastPart = data.GetRange(cutpoint, amount); //3. Get the range of the numbers based on the amount to display as the last
+        List<int> firstPart = data.GetRange(0, cutpoint); // 4. Get the range of the numbers based on the cutpoint to display as the first
+
+        newList.AddRange(lastPart);// 5. Add the set of last numbers to display in the first
+        newList.AddRange(firstPart); // 6. Add the set of first numbers to display the last.
+
+    }
+      // TODO Problem 2 Start
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
-    }
 }
