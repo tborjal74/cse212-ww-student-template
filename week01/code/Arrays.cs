@@ -8,14 +8,15 @@ public static class Arrays
     /// <returns>array of doubles that are the multiples of the supplied number</returns>
     public static double[] MultiplesOf(double number, int length)
     {
-        double[] multiples = new double[length];
+        // Steps Taken 
+        double[] multiples = new double[length]; // 1. Initialize the array holding the multiples
 
-        for (int i = 0; i < length; i++)
+        for (int i = 0; i < length; i++) // 2. Use proper for loop to iterate the result of each multiple depending on the length
         {
-            multiples[i] = number * (i + 1);
+            multiples[i] = number * (i + 1); // 3. Use the correct formula to calculate the multiples of numbers.
         }
         
-        return multiples;
+        return multiples; // 4. Return the result to the filled array.
         
         // TODO Problem 1 Start
         // Remember: Using comments in your program, write down your process for solving this problem
