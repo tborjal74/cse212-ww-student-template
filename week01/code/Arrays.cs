@@ -44,6 +44,8 @@ public static class Arrays
         newList.AddRange(lastPart);// 5. Add the set of last numbers to display in the first
         newList.AddRange(firstPart); // 6. Add the set of first numbers to display the last.
 
+        data.Clear();
+        data.AddRange(newList); // 7. Display the whole list of numbers
     }
       // TODO Problem 2 Start
         // Remember: Using comments in your program, write down your process for solving this problem
