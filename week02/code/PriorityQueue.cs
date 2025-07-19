@@ -24,7 +24,7 @@
         // Find the index of the item with the highest priority (FIFO in case of ties)
         int highPriorityIndex = 0;
 
-        for (int index = 1; index < _queue.Count; index++) // ✅ FIXED: use < _queue.Count
+        for (int index = 1; index < _queue.Count; index++) // FIXED: use < _queue.Count
         {
             if (_queue[index].Priority > _queue[highPriorityIndex].Priority)
             {
