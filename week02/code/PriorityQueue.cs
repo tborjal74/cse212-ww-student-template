@@ -3,9 +3,8 @@
     private List<PriorityItem> _queue = new();
 
     /// <summary>
-    /// Add a new value to the queue with an associated priority.  The
-    /// node is always added to the back of the queue regardless of 
-    /// the priority.
+    /// Add a new value to the queue with an associated priority.  
+    /// The node is always added to the back of the queue regardless of the priority.
     /// </summary>
     /// <param name="value">The value</param>
     /// <param name="priority">The priority</param>
@@ -17,21 +16,24 @@
 
     public string Dequeue()
     {
-        if (_queue.Count == 0) // Verify the queue is not empty
+        if (_queue.Count == 0)
         {
-            throw new InvalidOperationException("The queue is empty.");
+            throw new InvalidOperationException("The queue is empty");
         }
 
-        // Find the index of the item with the highest priority to remove
-        var highPriorityIndex = 0;
-        for (int index = 1; index < _queue.Count - 1; index++)
+        // Find the index of the item with the highest priority (FIFO in case of ties)
+        int highPriorityIndex = 0;
+
+        for (int index = 1; index < _queue.Count; index++) // ✅ FIXED: use < _queue.Count
         {
-            if (_queue[index].Priority >= _queue[highPriorityIndex].Priority)
+            if (_queue[index].Priority > _queue[highPriorityIndex].Priority)
+            {
                 highPriorityIndex = index;
+            }
         }
 
-        // Remove and return the item with the highest priority
         var value = _queue[highPriorityIndex].Value;
+        _queue.RemoveAt(highPriorityIndex); // Added this line to remove a priority item in the queue.
         return value;
     }
 
