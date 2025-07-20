@@ -7,7 +7,7 @@ public class PriorityQueueTests
     [TestMethod]
     // Scenario: Dequeue from an empty queue
     // Expected Result: InvalidOperationException with message "The queue is empty"
-    // Defect(s) Found: None
+    // Defect(s) Found: No exception is thrown when trying to dequeue from an empty queue.
     public void TestPriorityQueue_1()
     {
         var priorityQueue = new PriorityQueue();
@@ -26,7 +26,7 @@ public class PriorityQueueTests
     [TestMethod]
     // Scenario: Enqueue 3 items with different priorities
     // Expected Result: Dequeue returns highest priority item ("B")
-    // Defect(s) Found: None
+    // Defect(s) Found: The queue does not return the item with the highest priority first.
     public void TestPriorityQueue_2()
     {
         var priorityQueue = new PriorityQueue();
@@ -41,7 +41,7 @@ public class PriorityQueueTests
     [TestMethod]
     // Scenario: Enqueue items with the same highest priority
     // Expected Result: Dequeue returns the first inserted among those with highest priority (FIFO)
-    // Defect(s) Found: None
+    // Defect(s) Found: FIFO order is not maintained for items with the same priority.
     public void TestPriorityQueue_3()
     {
         var priorityQueue = new PriorityQueue();
@@ -59,7 +59,7 @@ public class PriorityQueueTests
     [TestMethod]
     // Scenario: Multiple enqueues and dequeues
     // Expected Result: Items dequeued in correct priority order
-    // Defect(s) Found: None
+    // Defect(s) Found: Incorrect order of dequeuing when multiple items have the same priority.
     public void TestPriorityQueue_4()
     {
         var priorityQueue = new PriorityQueue();
