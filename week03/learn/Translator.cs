@@ -25,8 +25,14 @@ public class Translator
     public void AddWord(string fromWord, string toWord)
     {
         // ADD YOUR CODE HERE
-    }
+        // Ensure that both words are trimmed of whitespace
+        fromWord = fromWord.Trim();
+        toWord = toWord.Trim();
 
+        // Add the translation to the dictionary
+        _words[fromWord] = toWord;
+        
+    }
     /// <summary>
     /// Translates the from word into the word that this stores as the translation
     /// </summary>
@@ -35,6 +41,15 @@ public class Translator
     public string Translate(string fromWord)
     {
         // ADD YOUR CODE HERE
-        return "";
+        // Ensure the word is trimmed of whitespace
+        fromWord = fromWord.Trim();
+        if (_words.TryGetValue(fromWord, out string toWord))
+        {
+            return toWord; // Return the translated word
+        }
+        else
+        {
+             return "???";
+        }
     }
 }
